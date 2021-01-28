@@ -5,7 +5,7 @@ FROM gaarangoa/ml:stable
 # RUN pip install --upgrade torch torchvision 
 
 RUN apt-get update -y 
-RUN apt-get install -y textlive-full
+RUN apt-get install -y texlive-full
 RUN apt-get install -y dvipng
 RUN apt-get install -y \
     ghostscript \
