@@ -1,22 +1,38 @@
 FROM gaarangoa/ml:stable 
 
-# RUN pip install SigProfilerExtractor
-# RUN pip install --upgrade tensorflow
+#################################################################################################################
+#           CONDA
+#################################################################################################################
 
-RUN pip install --upgrade torch torchvision 
-RUN apt-get update -y 
+ARG CONDA_DIR=/opt/conda
+# add to path
+ENV PATH $CONDA_DIR/bin:$PATH
+
+# Install miniconda
+RUN echo "export PATH=$CONDA_DIR/bin:"'$PATH' > /etc/profile.d/conda.sh && \
+    curl -sL https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -o ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p $CONDA_DIR && \
+    rm ~/miniconda.sh
+
+#################################################################################################################
+#           SNAKEMAKE
+#################################################################################################################
+
+RUN conda install -c conda-forge mamba 
+RUN mamba create -c conda-forge -c bioconda -n snakemake snakemake
+RUN conda init bash 
+RUN pip install ipykernel
+
+# SHELL ["conda","run","-n","snakemake","/bin/bash","-c"]
+# RUN python -m ipykernel install --name snakemake --display-name "snakemake"
+
+#################################################################################################################
+#           AI & JUPYTER
+#################################################################################################################
+
 RUN pip install --upgrade pip 
+RUN pip install --upgrade torch torchvision 
 RUN pip install --upgrade jupyterlab
 RUN pip install aquirdturtle_collapsible_headings
-# RUN jupyter lab build --dev-build=False
+RUN pip install pdoc3
 
-
-# RUN apt-get install -y texlive-full
-# RUN apt-get install -y dvipng
-# RUN apt-get install -y \
-#     ghostscript \
-#     libgs-dev \
-#     imagemagick
-
-# Installing GRCh37 and GRCh38 database
-# RUN python -c "from SigProfilerMatrixGenerator import install as genInstall;  genInstall.install('GRCh37'); genInstall.install('GRCh38');"
