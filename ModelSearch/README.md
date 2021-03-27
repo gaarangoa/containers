@@ -1,5 +1,7 @@
 ## Docker for model Search from google
 
+Download the forked version from here: https://github.com/gaarangoa/model_search
+
 Inside your project folder containing model_search run: 
 
 ```bash
