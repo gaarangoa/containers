@@ -1,9 +1,7 @@
 FROM gaarangoa/ml:stable 
 
 RUN apt-get update -y 
-RUN pip install --upgrade pip 
-RUN pip install --upgrade jupyterlab
-RUN pip install aquirdturtle_collapsible_headings
+RUN pip install --upgrade pip
 
 RUN pip install SigProfilerExtractor
 
