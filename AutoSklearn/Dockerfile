@@ -14,3 +14,10 @@ RUN pip install xlrd
 RUN pip install pandas --upgrade 
 RUN pip install openpyxl
 RUN pip install featuretools
+
+#################################################################################################################
+#           AUTO-SKLEARN
+#################################################################################################################
+
+RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
+RUN pip install auto-sklearn 

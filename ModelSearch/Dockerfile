@@ -14,4 +14,3 @@ RUN pip install keras-tuner==1.0.2
 RUN pip install mock==4.0.3
 
 RUN apt install protobuf-compiler --yes
-
