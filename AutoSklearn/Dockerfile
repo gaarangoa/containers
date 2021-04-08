@@ -21,3 +21,9 @@ RUN pip install featuretools
 
 RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
 RUN pip install auto-sklearn 
+
+#################################################################################################################
+#           AUTO-SKLEARN
+#################################################################################################################
+
+RUN pip install pytorch-tabnet
