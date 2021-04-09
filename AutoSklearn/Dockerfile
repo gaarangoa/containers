@@ -23,9 +23,3 @@ RUN pip install scikit-learn --upgrade
 RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
 RUN pip install auto-sklearn 
 
-#################################################################################################################
-#           TabNet
-#################################################################################################################
-
-RUN pip install pytorch-tabnet
-RUN pip install tornado --upgrade
