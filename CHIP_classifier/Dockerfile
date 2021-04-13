@@ -16,3 +16,5 @@ RUN pip install bokeh==2.3.1
 RUN pip install seaborn --upgrade
 RUN pip install biopython
 RUN pip install rich
+
+
