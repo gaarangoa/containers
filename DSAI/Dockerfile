@@ -29,6 +29,5 @@ RUN pip install openpyxl
 RUN pip install featuretools
 RUN pip install pdoc3
 
-RUN pip install scikit-learn --upgrade
 RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
 RUN pip install auto-sklearn 
