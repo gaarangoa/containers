@@ -14,7 +14,6 @@ RUN pip install --upgrade torch==1.8.1 torchvision==0.9.1 torchaudio==0.8.1
 
 RUN pip install scikit-learn==0.24.1
 RUN pip install seaborn==0.11.1
-RUN pip install mlflow==1.15.0
 RUN pip install pyfaidx==0.5.9.5
 RUN pip install bokeh==2.3.1
 RUN pip install dash==1.20.0
@@ -32,4 +31,6 @@ RUN pip install pdoc3
 RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
 RUN pip install auto-sklearn
 
+RUN pip install lightgbm==2.2.3
+RUN pip install mlflow==1.15.0
 
