@@ -1,16 +1,17 @@
 FROM tensorflow/tensorflow:2.4.1-gpu-jupyter
 
 #################################################################################################################
-#  AI
+#  AI v 2.0.0 
 #################################################################################################################
 
-RUN pip install jupyterlab==3.0.14
-RUN pip install aquirdturtle_collapsible_headings
+RUN apt-get update
 
 RUN pip install --upgrade pip 
-RUN pip install pandas --upgrade
 
-RUN pip install --upgrade torch==1.8.1 torchvision==0.9.1 torchaudio==0.8.1
+RUN pip install jupyterlab==3.1.1
+RUN pip install aquirdturtle_collapsible_headings
+
+RUN pip install pandas --upgrade
 
 RUN pip install scikit-learn==0.24.1
 RUN pip install seaborn==0.11.1
@@ -33,4 +34,7 @@ RUN pip install auto-sklearn
 
 RUN pip install lightgbm==2.2.3
 RUN pip install mlflow==1.15.0
+RUN pip install pandas-profiling[notebook]
 
+RUN pip3 install torch torchvision torchaudio
+RUN pip3 install pytorch-lightning
