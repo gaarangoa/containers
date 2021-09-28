@@ -1,14 +1,14 @@
-FROM tensorflow/tensorflow:2.4.1-gpu-jupyter
+FROM tensorflow/tensorflow:2.6.0-gpu-jupyter
 
 #################################################################################################################
-#  AI v 2.0.0 
+#  AI v 2.0.2
 #################################################################################################################
 
 RUN apt-get update
 
 RUN pip install --upgrade pip 
 
-RUN pip install jupyterlab==3.1.1
+RUN pip install jupyterlab==3.1.10
 RUN pip install aquirdturtle_collapsible_headings
 
 RUN pip install pandas --upgrade
@@ -29,12 +29,18 @@ RUN pip install openpyxl
 RUN pip install featuretools
 RUN pip install pdoc3
 
-RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
-RUN pip install auto-sklearn
+# RUN curl https://raw.githubusercontent.com/automl/auto-sklearn/master/requirements.txt | xargs -n 1 -L 1 pip install
+# RUN pip install auto-sklearn
 
 RUN pip install lightgbm==2.2.3
 RUN pip install mlflow==1.15.0
 RUN pip install pandas-profiling[notebook]
 
-RUN pip3 install torch torchvision torchaudio
+RUN pip3 install torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 RUN pip3 install pytorch-lightning
+
+RUN pip install flaml
+RUN pip install tensorboard
+
+RUN pip install jupyter-book
+RUN pip install lifelines
