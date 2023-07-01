@@ -1,0 +1,60 @@
+Bootstrap: docker
+From: tensorflow/tensorflow:2.11.0-gpu-jupyter
+Stage: spython-base
+
+%post
+
+#################################################################################################################
+#  AI v 2.1.0.0
+#################################################################################################################
+
+pip install torch torchvision torchaudio
+pip install pytorch-lightning
+
+apt-get update
+
+pip install --upgrade pip
+pip install opencv-python==4.5.5.62
+pip install jupyterlab==3.2.9
+pip install aquirdturtle_collapsible_headings
+pip install pandas==1.1.5
+pip install scikit-learn==0.24.1
+pip install seaborn==0.11.1
+pip install pyfaidx==0.5.9.5
+pip install bokeh==2.3.1
+pip install dash==1.20.0
+pip install dash dash_bootstrap_components
+pip install shap==0.39.0
+pip install featuretools==0.23.3
+
+pip install biopython==1.79
+pip install rich
+pip install umap-learn==0.5.1
+pip install xlrd
+pip install openpyxl
+pip install pdoc3
+
+pip install lightgbm==3.2.1
+pip install mlflow==1.15.0
+pip install pandas-profiling[notebook]
+
+pip install flaml==0.6.2
+pip install tensorboard
+
+pip install jupyter-book
+pip install lifelines==0.26.0
+
+pip install dowhy==0.6
+pip install scikit-survival==0.17.0
+pip install pysurvival==0.1.2
+pip install nevergrad==0.4.3
+pip install networkx==2.5.1
+pip install gprofiler_official==1.0.0
+pip install streamlit==1.2.0
+
+pip install transformers
+
+%runscript
+exec /bin/bash "$@"
+%startscript
+exec /bin/bash "$@"

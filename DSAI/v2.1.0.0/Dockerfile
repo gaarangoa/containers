@@ -4,7 +4,7 @@ FROM tensorflow/tensorflow:2.11.0-gpu-jupyter
 #  AI v 2.1.0.0
 #################################################################################################################
 
-RUN pip3 install torch torchvision torchaudio
+RUN pip install torch torchvision torchaudio
 RUN pip install pytorch-lightning
 
 RUN apt-get update
@@ -12,7 +12,6 @@ RUN apt-get update
 RUN pip install --upgrade pip 
 RUN pip install opencv-python==4.5.5.62
 RUN pip install jupyterlab==3.2.9
-RUN pip install aquirdturtle_collapsible_headings
 RUN pip install pandas==1.1.5
 RUN pip install scikit-learn==0.24.1
 RUN pip install seaborn==0.11.1
@@ -47,6 +46,7 @@ RUN pip install nevergrad==0.4.3
 RUN pip install networkx==2.5.1
 RUN pip install gprofiler_official==1.0.0
 RUN pip install streamlit==1.2.0
+RUN pip install reactpy
 
 RUN pip install transformers
 
